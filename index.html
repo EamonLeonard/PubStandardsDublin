@@ -12,9 +12,22 @@
         $(".date").corner("4px");
       });
     </script>
-
 </head>
 <body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '159018020786082', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
 <div id="doc3" class="yui-t3">
    
    <div id="bd" role="main">
@@ -31,8 +44,6 @@
       <h2>Where?</h2>
       <p>The Bull & Castle, beside Christ Church, Dublin City. You'll find us in the beer hall upstairs.</p>
       <iframe id="gmap" width="740" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=102177150523432822793.00048c85317df1398e572&amp;ll=53.343455,-6.269889&amp;spn=0.008967,0.018239&amp;z=15&amp;output=embed"></iframe>
-      
-      
       <h2>< Substandards ></h2>
       <p>The mid-Pub Standards non-Pub Standards Pub Standards. For the more hardcore, Substandards takes place on the middle Thursday between regular Pub Standards'.
 The rules are that, instead of having a number (like regular Pub Standards) it must have a name (such as Substandards Jeff) and must always be in a different pub. Follow <a href="http://twitter.com/PubStandardsDub" title="Pub Standards Dublin on Twitter">@PubStandardsDub</a> for location details.</p>
@@ -58,7 +69,7 @@ The rules are that, instead of having a number (like regular Pub Standards) it m
         <li><span class="date"> "Ada" </span>26th August 2010</li>
         <li>O&apos;Neill&apos;s Pearse Street, Dublin 2.</li>
       </ul>
-    
+    <fb:like href="http://www.colmisainmdom.com/PubStandardsDublin/" layout="box_count" width="200" font="lucida grande"></fb:like>
     </div>
   </div>
 	
