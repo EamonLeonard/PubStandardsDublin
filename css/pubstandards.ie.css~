@@ -128,9 +128,6 @@ h1, h2{
 	background:#333333;
 }
 
-.passed{
-  text-decoration:strikethrough;
-}
 
 
 .footer{
