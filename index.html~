@@ -53,10 +53,9 @@ The rules are that, instead of having a number (like regular Pub Standards) it m
 </div>
 	</div>
 	<div class="yui-b" id="panels">
-    <!-- Including the XFBML version of the Like Button -->
-    <fb:like href="http://www.pubstandards.ie/" layout="box_count" width="200" font="lucida grande"></fb:like>	
-	
     <div class="panel">
+    <!-- Including the XFBML version of the Like Button -->
+    <fb:like href="http://www.pubstandards.ie/" layout="box_count" width="200" font="lucida grande"></fb:like>	    
     <h2>When?</h2>
       <p>The second Thursday of every month, 18:30 onwards.</p>
       <ul>
