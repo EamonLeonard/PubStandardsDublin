@@ -129,7 +129,7 @@ h1, h2{
 }
 
 .passed{
-  text-decoration:strikethrough;
+  text-decoration:line-through;
 }
 
 
