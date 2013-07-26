@@ -57,7 +57,7 @@
       
       <h2>Chat</h2>
       <p>Between PubStandards, we chat on IRC - we're on Freenode at #pubstandardsdub</p>
-      
+
 	  <!--
 	  <h2>< Substandards ></h2>
       <p>The mid-Pub Standards non-Pub Standards Pub Standards. For the more hardcore, Substandards takes place on the middle Thursday between regular Pub Standards'.
@@ -73,46 +73,10 @@ The rules are that, instead of having a number (like regular Pub Standards) it m
     <h2>When?</h2>
       <p>The second Thursday of every month, 18:30 onwards.</p>
 
-
-      <ul>
-        <li><span class="date"># 35</span> 11th July 2013 </li>
-        <li><span class="date"># 34</span> 13th June 2013 </li>
-        <li><span class="date"># 33</span> 9th May 2013 </li>
-        <li class="past"><span class="date"># 32</span> 11th Apr 2013 </li>
-    		<li class="past"><span class="date"># 31</span> 14th Mar 2013 </li>
-    		<li class="past"><span class="date"># 30</span>&hearts;&#9825; 14th Feb 2013 &#9825;&hearts;</li>
-    		<li class="past"><span class="date"># 29</span>10th Jan 2013</li> 
-    		<li class="past"><span class="date"># 28</span>13th Dec 2012 <br/> ~ OMG LOL XMAS! ~ </li> 
-    		<li class="past"><span class="date"># 27</span>8th Nov 2012</li> 
-    		<li class="past"><span class="date"># 26</span>11th Oct 2012</li> 
-    		<li class="past"><span class="date"># 25</span>13th Sept 2012</li> 
-    		<li class="past"><span class="date"># 24</span>9th Aug 2012 <br/> ~ 2 YEARS OLD TODAY! ~ </li>
-    		<li class="past"><span class="date"># 23</span>12th July 2012</li> 
-    		<li class="past"><span class="date"># 22</span>14th June 2012</li> 
-    		<li class="past"><span class="date"># 21</span>10th May 2012</li> 
-    		<li class="past"><span class="date"># 20</span>12th April 2012</li> 
-    		<li class="past"><span class="date"># 19</span>8th March 2012</li> 
-    		<li class="past"><span class="date"># 18</span>9th February 2012</li> 
-    		<li class="past"><span class="date"># 17</span>12th January 2012</li> 
-    		<li class="past"><span class="date"># 16</span>8th December 2011</li>        
-    		<li class="past"><span class="date"># 15</span>10th November 2011</li>        
-    		<li class="past"><span class="date"># 14</span>13th October 2011</li>        	
-    		<li class="past"><span class="date"># 13</span>8th September 2011</li>                
-    		<li class="past"><span class="date"># 12</span>11th August 2011</li>        
-        <li class="past"><span class="date"># 11</span>14th July 2011</li>
-        <li class="past"><span class="date"># 10</span>9th June 2011</li>        
-        <li class="past"><span class="date"># 9</span>12th May 2011</li>        
-        <li class="past"><span class="date"># 8</span>14th April 2011</li>        
-        <li class="past"><span class="date"># 7</span>10th March 2011</li>        
-        <li class="past"><span class="date"># 6</span>10th February 2011</li>
-        <li class="past"><span class="date"># 5</span>13th January 2011</li>
-        <li class="past"><span class="date"># 4</span>9th December 2010</li>
-        <li class="past"><span class="date"># 3</span>11th November 2010</li>
-        <li class="past"><span class="date"># 2</span>14th October 2010</li>
-        <li class="past"><span class="date"># 1</span>9th September 2010</li>
-        <li class="past"><span class="date"># 0</span>12th August 2010</li>
+      <ul id="pubstandards_dates">
       </ul>
-	  <!--
+
+      <!--
 	    <h2>When is Substandards?</h2>
       <p class="past">The Thursday between regular Pub Standards, 18:30 onwards.</p>
       <p>If anyone wants to organise a Substandards, contact <a href="http://twitter.com/PubStandardsDub">@PubStandardsDub</a> or <a href="http://twitter.com/EamonLeonard">@EamonLeonard</a></p>
@@ -158,6 +122,71 @@ The rules are that, instead of having a number (like regular Pub Standards) it m
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+    function nextPubStandards(a_date) {
+        var thursdays = 0;
+        var next = new Date(
+            a_date.getYear() + 1900,
+            a_date.getMonth() + 1,
+            1
+        );
+        do {
+            next.setDate(next.getDate() + 1)
+            if (next.getDay() == 4) {
+                thursdays++;
+            }
+        } while (thursdays < 2);
+        return next;
+    }
+
+    function formatDate(a_date) {
+        var dayfmt = function(day) {
+            if (day == 1 || day == 21 || day == 31) {
+                return day + 'st';
+            } else if (day == 2 || day == 22) {
+                return day + 'nd';
+            } else if (day == 3 || day == 23) {
+                return day + 'rd';
+            } else {
+                return day + 'th';
+            }
+        }
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+        ]
+        return  dayfmt(a_date.getDate()) + " " +
+                months[a_date.getMonth()] + " " +
+                a_date.getFullYear();
+    }
+
+    var pubStandardsDay = new Date(2010, 7, 12);
+    var pubStandardsNum = 0;
+    var now = new Date();
+    var pending = 0;
+    while (pending < 3) {
+        item  = "<li>";
+        if (pubStandardsDay < now) {
+            item = "<li class=\"past\">"
+        } else {
+            pending++;
+        }
+        item += "<span class=\"date\"># " + pubStandardsNum + "</span>";
+        item += formatDate(pubStandardsDay);
+        item += "</li>";
+        $("ul#pubstandards_dates").prepend(item);
+        pubStandardsDay = nextPubStandards(pubStandardsDay);
+        pubStandardsNum++;
+    }
 </script>
 </body>
 </html>
