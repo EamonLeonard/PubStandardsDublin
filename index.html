@@ -129,6 +129,8 @@ The rules are that, instead of having a number (like regular Pub Standards) it m
             a_date.getMonth() + 1,
             1
         );
+        next.setDate(next.getDate() - 1);
+
         do {
             next.setDate(next.getDate() + 1)
             if (next.getDay() == 4) {
