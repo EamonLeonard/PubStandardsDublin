@@ -173,11 +173,12 @@ The rules are that, instead of having a number (like regular Pub Standards) it m
 
     var pubStandardsDay = new Date(2010, 7, 12);
     var pubStandardsNum = 0;
-    var now = new Date();
+    var yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     var pending = 0;
     while (pending < 3) {
         item  = "<li>";
-        if (pubStandardsDay < now) {
+        if (pubStandardsDay < yesterday) {
             item = "<li class=\"past\">"
         } else {
             pending++;
