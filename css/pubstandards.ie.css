@@ -84,7 +84,8 @@ h1, h2{
 
 #panels{
 	width:320px!important;
-	background-image:url('../images/Pub-Standards-Dublin.png');
+	background-image:url('../images/beermat@1x.png');
+  background-size:300px 380px;
 	background-repeat:no-repeat;
 	height:600px;
 }
@@ -147,4 +148,8 @@ h1, h2{
 	color:#ffffff;
 }
 
-	
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  #panels{
+  	background-image: url('../images/beermat@2x.png');
+  }
+}
